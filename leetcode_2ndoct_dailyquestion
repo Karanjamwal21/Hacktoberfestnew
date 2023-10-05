@@ -1,0 +1,38 @@
+2038. Remove Colored Pieces if Both Neighbors are the Same Color
+
+
+class Solution {
+    public boolean winnerOfGame(String colors) {
+
+        int n=colors.length();
+        int i=0,a=0,b=0;
+
+        while(i<n){
+
+            int a1=0,b1=0;
+
+            while( i<n && colors.charAt(i)=='A'){
+                a1++;
+                i++;
+            }
+            while( i<n && colors.charAt(i)=='B'){
+                b1++;
+                i++;
+            }
+            if(a1>2){
+                a+=a1-2;
+            }
+            if(b1>2){
+                b+=b1-2;
+            }
+        }
+        if( a>b ){
+            return true;
+        }
+        if(a<b){
+            return false;
+        }
+        return false;
+        
+    }
+}
